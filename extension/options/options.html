@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NameShield Ayarları</title>
+  <link rel="stylesheet" href="../ui/common.css">
+  <style>
+    main { max-width: 720px; margin: 0 auto; padding: 32px 16px 64px; }
+    header { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
+    header h1 { font-size: 22px; }
+    section { margin-top: 28px; }
+    h2 { font-size: 15px; margin-bottom: 10px; }
+    .panel { background: var(--surface); border-radius: 12px; padding: 14px 16px; }
+    table { width: 100%; border-collapse: collapse; }
+    th { text-align: left; font-size: 12px; font-weight: 600; color: var(--muted); padding: 0 6px 8px; }
+    td { padding: 5px 6px; vertical-align: middle; }
+    td.actions { white-space: nowrap; width: 1%; }
+    .add { display: grid; grid-template-columns: 1fr 1fr auto auto; gap: 8px; margin-top: 10px; }
+    .empty { padding: 10px 6px; }
+    textarea { width: 100%; min-height: 80px; padding: 10px; border: 1px solid var(--border); border-radius: 8px; background: var(--bg); color: var(--text); font: inherit; resize: vertical; }
+    .out { margin-top: 8px; padding: 10px; border-radius: 8px; background: var(--bg); border: 1px dashed var(--border); min-height: 40px; white-space: pre-wrap; }
+    details { margin-top: 6px; }
+    summary { cursor: pointer; color: var(--accent); font-size: 13px; padding: 4px 0; }
+    .people td { font-size: 13px; padding: 4px 6px; border-top: 1px solid var(--border); }
+    .people td.role { color: var(--muted); }
+    .switch { border-top: 1px solid var(--border); }
+    .switch:first-child { border-top: 0; }
+    .switch small { display: block; color: var(--muted); }
+    @media (max-width: 560px) {
+      .add { grid-template-columns: 1fr auto auto; }
+      .add #newReal { grid-column: 1 / -1; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <header><img src="../icons/icon48.png" width="32" height="32" alt=""><h1>NameShield</h1></header>
+  <p class="muted">Gönderi veya yanıt yazarken aşağıdaki isimler otomatik olarak takma adlarıyla değiştirilir. Gönder/Yanıtla anında isim hâlâ metindeyse gönderim durdurulur ve isim değiştirilir.</p>
+
+  <section>
+    <h2>Korunan isimler</h2>
+    <div class="panel">
+      <table>
+        <thead><tr><th>Gerçek isim</th><th>Takma ad</th><th></th></tr></thead>
+        <tbody id="rules"></tbody>
+      </table>
+      <div class="add">
+        <input type="text" id="newReal" placeholder="Gerçek isim (ör. Mehmet Altındal)" autocomplete="off">
+        <input type="text" id="newAlias" placeholder="Takma ad (otomatik)" autocomplete="off">
+        <button class="icon" id="newShuffle" title="Başka takma ad öner">🔀</button>
+        <button class="primary" id="newAdd">Ekle</button>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Hazır listeler</h2>
+    <div class="panel" id="presets"></div>
+  </section>
+
+  <section>
+    <h2>Davranış</h2>
+    <div class="panel">
+      <label class="switch"><span>Koruma açık</span><input type="checkbox" data-key="enabled"></label>
+      <label class="switch"><span>Yazarken canlı değiştir<small>Kapalıysa yalnızca gönderim anında değiştirilir.</small></span><input type="checkbox" data-key="liveReplace"></label>
+      <label class="switch"><span>Ad ve soyadı ayrı ayrı da değiştir<small>“Mehmet” tek başına yazılsa bile “Matthew” olur.</small></span><input type="checkbox" data-key="replaceParts"></label>
+      <label class="switch"><span>Değiştirince bildirim göster</span><input type="checkbox" data-key="showToast"></label>
+    </div>
+  </section>
+
+  <section>
+    <h2>Devre dışı siteler</h2>
+    <div class="panel" id="sites"></div>
+  </section>
+
+  <section>
+    <h2>Dene</h2>
+    <textarea id="tryIn" placeholder="Bir metin yazın: Merhaba, ben Mehmet Altındal…"></textarea>
+    <div class="out" id="tryOut"></div>
+  </section>
+</main>
+<script src="../src/names.js"></script>
+<script src="options.js"></script>
+</body>
+</html>

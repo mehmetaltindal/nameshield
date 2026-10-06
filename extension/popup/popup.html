@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <title>NameShield</title>
+  <link rel="stylesheet" href="../ui/common.css">
+  <style>
+    body { width: 320px; padding: 14px; }
+    header { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+    header h1 { font-size: 16px; }
+    .card { background: var(--surface); border-radius: 10px; padding: 10px 12px; margin-top: 10px; }
+    .preview { display: flex; align-items: center; gap: 6px; margin: 8px 0; font-size: 13px; min-height: 20px; }
+    .preview b { font-weight: 600; }
+    ul { list-style: none; margin: 8px 0 0; padding: 0; max-height: 140px; overflow: auto; }
+    li { display: flex; justify-content: space-between; gap: 6px; padding: 4px 0; font-size: 13px; border-top: 1px solid var(--border); }
+    li:first-child { border-top: 0; }
+    footer { margin-top: 10px; text-align: right; }
+    a { color: var(--accent); text-decoration: none; font-size: 13px; }
+  </style>
+</head>
+<body>
+  <header><img src="../icons/icon32.png" width="22" height="22" alt=""><h1>NameShield</h1></header>
+
+  <label class="switch"><span>Koruma açık</span><input type="checkbox" id="enabled"></label>
+  <label class="switch"><span>Bu sitede çalış <span class="muted" id="host"></span></span><input type="checkbox" id="site"></label>
+
+  <div class="card">
+    <input type="text" id="real" placeholder="Gerçek isim (ör. Mehmet Altındal)" autocomplete="off">
+    <div class="preview" id="preview"></div>
+    <div class="row">
+      <button class="icon" id="shuffle" title="Başka bir takma ad öner">🔀</button>
+      <button class="primary" id="add" style="flex:1">Ekle</button>
+    </div>
+    <ul id="list"></ul>
+  </div>
+
+  <footer><a href="#" id="options">Tüm ayarlar →</a></footer>
+  <script src="../src/names.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

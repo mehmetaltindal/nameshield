@@ -1,0 +1,597 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 110;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		190E746530751601009F6748 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190E746430751601009F6748 /* AppDelegate.swift */; };
+		190E746930751601009F6748 /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = 190E746730751601009F6748 /* Main.html */; };
+		190E746B30751601009F6748 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 190E746A30751601009F6748 /* Icon.png */; };
+		190E746D30751601009F6748 /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = 190E746C30751601009F6748 /* Style.css */; };
+		190E746F30751601009F6748 /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = 190E746E30751601009F6748 /* Script.js */; };
+		190E747130751601009F6748 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190E747030751601009F6748 /* ViewController.swift */; };
+		190E747430751601009F6748 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 190E747230751601009F6748 /* Main.storyboard */; };
+		190E747630751602009F6748 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 190E747530751602009F6748 /* Assets.xcassets */; };
+		190E747D30751603009F6748 /* NameShield Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 190E747C30751603009F6748 /* NameShield Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		190E748230751603009F6748 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190E748130751603009F6748 /* SafariWebExtensionHandler.swift */; };
+		190E749430751603009F6748 /* ui in Resources */ = {isa = PBXBuildFile; fileRef = 190E748E30751603009F6748 /* ui */; };
+		190E749530751603009F6748 /* options in Resources */ = {isa = PBXBuildFile; fileRef = 190E748F30751603009F6748 /* options */; };
+		190E749630751603009F6748 /* popup in Resources */ = {isa = PBXBuildFile; fileRef = 190E749030751603009F6748 /* popup */; };
+		190E749730751603009F6748 /* icons in Resources */ = {isa = PBXBuildFile; fileRef = 190E749130751603009F6748 /* icons */; };
+		190E749830751603009F6748 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 190E749230751603009F6748 /* manifest.json */; };
+		190E749930751603009F6748 /* src in Resources */ = {isa = PBXBuildFile; fileRef = 190E749330751603009F6748 /* src */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		190E747E30751603009F6748 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 190E745930751601009F6748 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 190E747B30751603009F6748;
+			remoteInfo = "NameShield Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		190E748930751603009F6748 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			dstPath = "";
+			dstSubfolder = PlugIns;
+			files = (
+				190E747D30751603009F6748 /* NameShield Extension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		190E746130751601009F6748 /* NameShield.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NameShield.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		190E746430751601009F6748 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		190E746830751601009F6748 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = Base.lproj/Main.html; sourceTree = "<group>"; };
+		190E746A30751601009F6748 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		190E746C30751601009F6748 /* Style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
+		190E746E30751601009F6748 /* Script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Script.js; sourceTree = "<group>"; };
+		190E747030751601009F6748 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		190E747330751601009F6748 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		190E747530751602009F6748 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		190E747730751602009F6748 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		190E747C30751603009F6748 /* NameShield Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "NameShield Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		190E748130751603009F6748 /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
+		190E748330751603009F6748 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		190E748E30751603009F6748 /* ui */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ui; path = ../../../extension/ui; sourceTree = "<group>"; };
+		190E748F30751603009F6748 /* options */ = {isa = PBXFileReference; lastKnownFileType = folder; name = options; path = ../../../extension/options; sourceTree = "<group>"; };
+		190E749030751603009F6748 /* popup */ = {isa = PBXFileReference; lastKnownFileType = folder; name = popup; path = ../../../extension/popup; sourceTree = "<group>"; };
+		190E749130751603009F6748 /* icons */ = {isa = PBXFileReference; lastKnownFileType = folder; name = icons; path = ../../../extension/icons; sourceTree = "<group>"; };
+		190E749230751603009F6748 /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = manifest.json; path = ../../../extension/manifest.json; sourceTree = "<group>"; };
+		190E749330751603009F6748 /* src */ = {isa = PBXFileReference; lastKnownFileType = folder; name = src; path = ../../../extension/src; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		190E745E30751601009F6748 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
+		190E747930751603009F6748 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		190E745830751601009F6748 = {
+			isa = PBXGroup;
+			children = (
+				190E746330751601009F6748 /* NameShield */,
+				190E748030751603009F6748 /* NameShield Extension */,
+				190E746230751601009F6748 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		190E746230751601009F6748 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				190E746130751601009F6748 /* NameShield.app */,
+				190E747C30751603009F6748 /* NameShield Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		190E746330751601009F6748 /* NameShield */ = {
+			isa = PBXGroup;
+			children = (
+				190E746430751601009F6748 /* AppDelegate.swift */,
+				190E747030751601009F6748 /* ViewController.swift */,
+				190E747230751601009F6748 /* Main.storyboard */,
+				190E747530751602009F6748 /* Assets.xcassets */,
+				190E747730751602009F6748 /* Info.plist */,
+				190E746630751601009F6748 /* Resources */,
+			);
+			path = NameShield;
+			sourceTree = "<group>";
+		};
+		190E746630751601009F6748 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				190E746730751601009F6748 /* Main.html */,
+				190E746A30751601009F6748 /* Icon.png */,
+				190E746C30751601009F6748 /* Style.css */,
+				190E746E30751601009F6748 /* Script.js */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		190E748030751603009F6748 /* NameShield Extension */ = {
+			isa = PBXGroup;
+			children = (
+				190E748D30751603009F6748 /* Resources */,
+				190E748130751603009F6748 /* SafariWebExtensionHandler.swift */,
+				190E748330751603009F6748 /* Info.plist */,
+			);
+			path = "NameShield Extension";
+			sourceTree = "<group>";
+		};
+		190E748D30751603009F6748 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				190E748E30751603009F6748 /* ui */,
+				190E748F30751603009F6748 /* options */,
+				190E749030751603009F6748 /* popup */,
+				190E749130751603009F6748 /* icons */,
+				190E749230751603009F6748 /* manifest.json */,
+				190E749330751603009F6748 /* src */,
+			);
+			name = Resources;
+			path = "NameShield Extension";
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		190E746030751601009F6748 /* NameShield */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 190E748A30751603009F6748 /* Build configuration list for PBXNativeTarget "NameShield" */;
+			buildPhases = (
+				190E745D30751601009F6748 /* Sources */,
+				190E745E30751601009F6748 /* Frameworks */,
+				190E745F30751601009F6748 /* Resources */,
+				190E748930751603009F6748 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				190E747F30751603009F6748 /* PBXTargetDependency */,
+			);
+			name = NameShield;
+			productName = NameShield;
+			productReference = 190E746130751601009F6748 /* NameShield.app */;
+			productType = "com.apple.product-type.application";
+		};
+		190E747B30751603009F6748 /* NameShield Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 190E748630751603009F6748 /* Build configuration list for PBXNativeTarget "NameShield Extension" */;
+			buildPhases = (
+				190E747830751603009F6748 /* Sources */,
+				190E747930751603009F6748 /* Frameworks */,
+				190E747A30751603009F6748 /* Resources */,
+			);
+			buildRules = (
+			);
+			name = "NameShield Extension";
+			productName = "NameShield Extension";
+			productReference = 190E747C30751603009F6748 /* NameShield Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		190E745930751601009F6748 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2710;
+				LastUpgradeCheck = 2710;
+				TargetAttributes = {
+					190E746030751601009F6748 = {
+						CreatedOnToolsVersion = 27.1;
+					};
+					190E747B30751603009F6748 = {
+						CreatedOnToolsVersion = 27.1;
+					};
+				};
+			};
+			buildConfigurationList = 190E745C30751601009F6748 /* Build configuration list for PBXProject "NameShield" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 190E745830751601009F6748;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 190E746230751601009F6748 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				190E746030751601009F6748 /* NameShield */,
+				190E747B30751603009F6748 /* NameShield Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		190E745F30751601009F6748 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+				190E746B30751601009F6748 /* Icon.png in Resources */,
+				190E747430751601009F6748 /* Main.storyboard in Resources */,
+				190E746F30751601009F6748 /* Script.js in Resources */,
+				190E746930751601009F6748 /* Main.html in Resources */,
+				190E747630751602009F6748 /* Assets.xcassets in Resources */,
+				190E746D30751601009F6748 /* Style.css in Resources */,
+			);
+		};
+		190E747A30751603009F6748 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+				190E749630751603009F6748 /* popup in Resources */,
+				190E749730751603009F6748 /* icons in Resources */,
+				190E749830751603009F6748 /* manifest.json in Resources */,
+				190E749930751603009F6748 /* src in Resources */,
+				190E749430751603009F6748 /* ui in Resources */,
+				190E749530751603009F6748 /* options in Resources */,
+			);
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		190E745D30751601009F6748 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+				190E747130751601009F6748 /* ViewController.swift in Sources */,
+				190E746530751601009F6748 /* AppDelegate.swift in Sources */,
+			);
+		};
+		190E747830751603009F6748 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+				190E748230751603009F6748 /* SafariWebExtensionHandler.swift in Sources */,
+			);
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		190E747F30751603009F6748 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 190E747B30751603009F6748 /* NameShield Extension */;
+			targetProxy = 190E747E30751603009F6748 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		190E746730751601009F6748 /* Main.html */ = {
+			isa = PBXVariantGroup;
+			children = (
+				190E746830751601009F6748 /* Base */,
+			);
+			name = Main.html;
+			sourceTree = "<group>";
+		};
+		190E747230751601009F6748 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				190E747330751601009F6748 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		190E748430751603009F6748 /* Debug configuration for PBXProject "NameShield" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 27.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		190E748530751603009F6748 /* Release configuration for PBXProject "NameShield" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 27.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		190E748730751603009F6748 /* Debug configuration for PBXNativeTarget "NameShield Extension" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "NameShield Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "NameShield Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mehmetaltindal.nameshield.Extension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		190E748830751603009F6748 /* Release configuration for PBXNativeTarget "NameShield Extension" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "NameShield Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "NameShield Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mehmetaltindal.nameshield.Extension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		190E748B30751603009F6748 /* Debug configuration for PBXNativeTarget "NameShield" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NameShield/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NameShield;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				INFOPLIST_KEY_NSViewGestureRecognizerIsExclusive = NO;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mehmetaltindal.nameshield;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		190E748C30751603009F6748 /* Release configuration for PBXNativeTarget "NameShield" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NameShield/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NameShield;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				INFOPLIST_KEY_NSViewGestureRecognizerIsExclusive = NO;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mehmetaltindal.nameshield;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		190E745C30751601009F6748 /* Build configuration list for PBXProject "NameShield" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				190E748430751603009F6748 /* Debug configuration for PBXProject "NameShield" */,
+				190E748530751603009F6748 /* Release configuration for PBXProject "NameShield" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		190E748630751603009F6748 /* Build configuration list for PBXNativeTarget "NameShield Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				190E748730751603009F6748 /* Debug configuration for PBXNativeTarget "NameShield Extension" */,
+				190E748830751603009F6748 /* Release configuration for PBXNativeTarget "NameShield Extension" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		190E748A30751603009F6748 /* Build configuration list for PBXNativeTarget "NameShield" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				190E748B30751603009F6748 /* Debug configuration for PBXNativeTarget "NameShield" */,
+				190E748C30751603009F6748 /* Release configuration for PBXNativeTarget "NameShield" */,
+			);
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 190E745930751601009F6748 /* Project object */;
+	validationLevel = 1;
+}
