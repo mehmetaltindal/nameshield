@@ -52,6 +52,9 @@
     kutay: "Curtis", ogulcan: "Oliver", sertac: "Sergio", tuna: "Toby", utku: "Hugo", yagiz: "Jake",
     cevdet: "Cedric", akin: "Archer", askin: "Asher", yasar: "Jasper", devlet: "Devin",
     musavat: "Maverick", numan: "Noah", mansur: "Manuel",
+    binali: "Bennett", hulusi: "Hugo", berat: "Brett", nureddin: "Norman", naci: "Nash", adil: "Adrian",
+    abdulhamit: "Abe", efkan: "Evan", temel: "Theodore", muharrem: "Morgan", mithat: "Mitch", dogu: "Doug",
+    veysel: "Wesley", egemen: "Egan", fahrettin: "Franklin",
 
     // Kadın isimleri
     betul: "Bethany", aleyna: "Alana", arzu: "Aria", ayla: "Ayla", aysel: "Isabel", aysun: "Allison",
@@ -69,7 +72,7 @@
     umran: "Uma", yeliz: "Elise", yesim: "Jessie", yildiz: "Stella", zehra: "Zara", zerrin: "Zelda",
     zuhal: "Zoe", zubeyde: "Zelda", zuleyha: "Julia", asiye: "Asia", cemile: "Camila", dilara: "Delilah",
     ecrin: "Erin", elvan: "Ellen", hatun: "Hattie", irmak: "Irma", kardelen: "Caroline", lara: "Lara",
-    medine: "Madeline", mahinur: "Marina", nehir: "Nell", pelin: "Pauline", rumeysa: "Rosemary", tuana: "Tiana", zisan: "Jasmine"
+    medine: "Madeline", mahinur: "Marina", zumrut: "Esmeralda", ruhsar: "Rosalind", meral: "Meryl", pervin: "Piper", nehir: "Nell", pelin: "Pauline", rumeysa: "Rosemary", tuana: "Tiana", zisan: "Jasmine"
   };
 
   // Harf bazlı İngilizce ilk isim havuzu (sözlükte olmayan isimler için).
@@ -102,29 +105,29 @@
 
   // Harf bazlı İngilizce soyadı havuzu.
   const SURNAMES = {
-    a: ["Alleyson", "Allington", "Anderson", "Atkinson", "Ashton", "Aldridge", "Alden", "Ainsley", "Abbott", "Arlington"],
-    b: ["Bradley", "Bennett", "Barlow", "Brooks", "Bristow", "Barton", "Blakely", "Burton", "Bayliss", "Buckley"],
-    c: ["Carter", "Collins", "Cranston", "Chandler", "Cooper", "Caldwell", "Carlisle", "Chester", "Crawford", "Cole"],
-    d: ["Dalton", "Davenport", "Dawson", "Denton", "Dixon", "Dorsey", "Dunbar", "Durham", "Darby", "Doyle"],
-    e: ["Ellison", "Emerson", "Everett", "Easton", "Edwards", "Elliott", "Elmore", "Ennis", "Eldridge", "Ashby"],
+    a: ["Alleyson", "Allington", "Anderson", "Atkinson", "Ashton", "Aldridge", "Alden", "Ainsley", "Abbott", "Arlington", "Ashford", "Atwood", "Avery", "Aylward"],
+    b: ["Bradley", "Bennett", "Barlow", "Brooks", "Bristow", "Barton", "Blakely", "Burton", "Bayliss", "Buckley", "Baxter", "Benson", "Bishop", "Blackwell", "Booth", "Bowman", "Brennan", "Briggs", "Bromley", "Bancroft"],
+    c: ["Carter", "Collins", "Cranston", "Chandler", "Cooper", "Caldwell", "Carlisle", "Chester", "Crawford", "Cole", "Cartwright", "Clayton", "Corbett", "Cunningham", "Calloway"],
+    d: ["Dalton", "Davenport", "Dawson", "Denton", "Dixon", "Dorsey", "Dunbar", "Durham", "Darby", "Doyle", "Dempsey", "Donovan", "Drake", "Dudley", "Dunmore"],
+    e: ["Ellison", "Emerson", "Everett", "Easton", "Edwards", "Elliott", "Elmore", "Ennis", "Eldridge", "Ashby", "Eastwood", "Ellington", "Everly", "Eaton"],
     f: ["Fletcher", "Foster", "Fairfax", "Fenton", "Fielding", "Fowler", "Franklin", "Fulton", "Forbes", "Finch"],
-    g: ["Garrison", "Gibson", "Graham", "Grayson", "Gilbert", "Goodwin", "Granger", "Griffin", "Gale", "Gardner"],
-    h: ["Harrington", "Hamilton", "Hartley", "Hayes", "Holden", "Howell", "Huxley", "Hanley", "Harper", "Hudson"],
+    g: ["Garrison", "Gibson", "Graham", "Grayson", "Gilbert", "Goodwin", "Granger", "Griffin", "Gale", "Gardner", "Gilmore", "Godfrey", "Gresham", "Gould"],
+    h: ["Harrington", "Hamilton", "Hartley", "Hayes", "Holden", "Howell", "Huxley", "Hanley", "Harper", "Hudson", "Hawthorne", "Holloway", "Hargrove", "Hensley"],
     i: ["Ingram", "Irving", "Iverson", "Isley", "Ives", "Inglewood"],
     j: ["Jameson", "Jennings", "Jarvis", "Jefferson", "Jordan", "Jacobs", "Judd"],
-    k: ["Kendall", "Kingsley", "Kensington", "Kirby", "Knight", "Keaton", "Kimball", "Kerrigan", "Kidd"],
+    k: ["Kendall", "Kingsley", "Kensington", "Kirby", "Knight", "Keaton", "Kimball", "Kerrigan", "Kidd", "Kendrick", "Kingston", "Kirkland", "Keller", "Kemp", "Kent", "Kerr", "Knox", "Kramer", "Kipling", "Kilgore"],
     l: ["Lawson", "Langley", "Lancaster", "Lockwood", "Lowell", "Lambert", "Lindsey", "Lyndon", "Lester"],
-    m: ["Mitchell", "Morrison", "Mansfield", "Maxwell", "Marlow", "Mercer", "Milton", "Montgomery", "Murray"],
+    m: ["Mitchell", "Morrison", "Mansfield", "Maxwell", "Marlow", "Mercer", "Milton", "Montgomery", "Murray", "Merritt", "Morley", "Mayfield", "Medford"],
     n: ["Norton", "Newman", "Nash", "Nolan", "Norwood", "Nelson", "Newell", "Neville"],
-    o: ["Oakley", "Oliver", "Osborne", "Owens", "Orwell", "Oldham", "Ogden", "Orton"],
+    o: ["Oakley", "Oliver", "Osborne", "Owens", "Orwell", "Oldham", "Ogden", "Orton", "Oswald", "Overton", "Ormsby", "Oakes"],
     p: ["Parker", "Preston", "Pemberton", "Prescott", "Palmer", "Porter", "Pierce", "Pryor"],
     r: ["Riley", "Russell", "Rutherford", "Remington", "Radley", "Rowland", "Rhodes", "Ramsey"],
-    s: ["Sullivan", "Sheridan", "Stanton", "Sinclair", "Sherwood", "Stratford", "Sawyer", "Sutton", "Shelby"],
-    t: ["Thompson", "Tennyson", "Turner", "Thornton", "Tucker", "Talbot", "Tilden", "Thatcher", "Tyson"],
+    s: ["Sullivan", "Sheridan", "Stanton", "Sinclair", "Sherwood", "Stratford", "Sawyer", "Sutton", "Shelby", "Stafford", "Sterling", "Spencer", "Shepherd"],
+    t: ["Thompson", "Tennyson", "Turner", "Thornton", "Tucker", "Talbot", "Tilden", "Thatcher", "Tyson", "Thorne", "Tolbert", "Townsend", "Tremaine"],
     u: ["Upton", "Underwood", "Usher", "Upshaw"],
     v: ["Vaughn", "Vance", "Vernon", "Valentine", "Vickers"],
     w: ["Walker", "Whitman", "Winslow", "Wellington", "Whitaker", "Warren", "Weston", "Wyatt"],
-    y: ["Yates", "Yardley", "Young", "Yorke"],
+    y: ["Yates", "Yardley", "Young", "Yorke", "Yarrow", "Yoder", "Yancey", "Yeager", "Yarwood", "Yelton", "Yeats", "Yarborough"],
     z: ["Zimmerman", "Zane", "Zeller"]
   };
 
@@ -287,13 +290,13 @@
   const PRESETS = {
     trPolitics: {
       label: "Türk siyasetçileri",
-      description: "Cumhurbaşkanı, kabine üyeleri ve öne çıkan siyasetçiler (Ekim 2026, kaynak: tccb.gov.tr/kabine).",
+      description: "Cumhurbaşkanı, mevcut kabine (Ekim 2026, kaynak: tccb.gov.tr/kabine), yakın dönem eski bakanlar ve öne çıkan siyasetçiler.",
       people: [
         // Cumhurbaşkanı ve kabine
         { real: "Recep Tayyip Erdoğan", role: "Cumhurbaşkanı", alone: ["Tayyip Erdoğan", "Erdoğan", "Tayyip"] },
         { real: "Cevdet Yılmaz", role: "Cumhurbaşkanı Yardımcısı" },
         { real: "Akın Gürlek", role: "Adalet Bakanı", alone: ["Gürlek"] },
-        { real: "Mahinur Özdemir Göktaş", role: "Aile ve Sosyal Hizmetler Bakanı", alone: ["Mahinur Göktaş", "Mahinur Özdemir"] },
+        { real: "Mahinur Özdemir Göktaş", alias: "Marina Oakley Goodwin", role: "Aile ve Sosyal Hizmetler Bakanı", alone: ["Mahinur Göktaş", "Mahinur Özdemir"] },
         { real: "Vedat Işıkhan", role: "Çalışma ve Sosyal Güvenlik Bakanı", alone: ["Işıkhan"] },
         { real: "Murat Kurum", role: "Çevre, Şehircilik ve İklim Değişikliği Bakanı" },
         { real: "Hakan Fidan", role: "Dışişleri Bakanı" },
@@ -322,7 +325,67 @@
         { real: "Ahmet Davutoğlu", role: "Gelecek Partisi", alone: ["Davutoğlu"] },
         // Büyükşehir belediye başkanları
         { real: "Ekrem İmamoğlu", role: "İstanbul", alone: ["İmamoğlu"] },
-        { real: "Mansur Yavaş", role: "Ankara" }
+        { real: "Mansur Yavaş", role: "Ankara" },
+        // Yakın dönem eski bakanlar ve devlet yöneticileri
+        { real: "Fatma Betül Sayan Kaya", alias: "Faith Bethany Sawyer Kendall", role: "Eski Aile ve Sosyal Politikalar Bakanı", alone: ["Betül Sayan Kaya", "Betül Sayan", "Sayan Kaya"] },
+        { real: "Binali Yıldırım", role: "Eski Başbakan" },
+        { real: "Abdullah Gül", role: "11. Cumhurbaşkanı" },
+        { real: "Bülent Arınç", role: "Eski Başbakan Yardımcısı", alone: ["Arınç"] },
+        { real: "Fuat Oktay", role: "Eski Cumhurbaşkanı Yardımcısı" },
+        { real: "Süleyman Soylu", role: "Eski İçişleri Bakanı" },
+        { real: "Ali Yerlikaya", role: "Eski İçişleri Bakanı", alone: ["Yerlikaya"] },
+        { real: "Efkan Ala", role: "Eski İçişleri Bakanı" },
+        { real: "Mevlüt Çavuşoğlu", role: "Eski Dışişleri Bakanı", alone: ["Çavuşoğlu"] },
+        { real: "Hulusi Akar", role: "Eski Milli Savunma Bakanı" },
+        { real: "Nurettin Canikli", role: "Eski Milli Savunma Bakanı", alone: ["Canikli"] },
+        { real: "Berat Albayrak", role: "Eski Hazine ve Maliye Bakanı", alone: ["Albayrak"] },
+        { real: "Lütfi Elvan", role: "Eski Hazine ve Maliye Bakanı" },
+        { real: "Nureddin Nebati", role: "Eski Hazine ve Maliye Bakanı", alone: ["Nebati"] },
+        { real: "Naci Ağbal", role: "Eski Maliye Bakanı", alone: ["Ağbal"] },
+        { real: "Bekir Bozdağ", role: "Eski Adalet Bakanı", alone: ["Bozdağ"] },
+        { real: "Abdulhamit Gül", role: "Eski Adalet Bakanı" },
+        { real: "Yılmaz Tunç", role: "Eski Adalet Bakanı" },
+        { real: "Fahrettin Koca", role: "Eski Sağlık Bakanı" },
+        { real: "Ziya Selçuk", role: "Eski Milli Eğitim Bakanı" },
+        { real: "Mahmut Özer", role: "Eski Milli Eğitim Bakanı" },
+        { real: "Zehra Zümrüt Selçuk", role: "Eski Aile, Çalışma ve Sosyal Hizmetler Bakanı", alone: ["Zümrüt Selçuk"] },
+        { real: "Derya Yanık", role: "Eski Aile ve Sosyal Hizmetler Bakanı" },
+        { real: "Vedat Bilgin", role: "Eski Çalışma ve Sosyal Güvenlik Bakanı" },
+        { real: "Ruhsar Pekcan", role: "Eski Ticaret Bakanı", alone: ["Pekcan"] },
+        { real: "Mehmet Muş", role: "Eski Ticaret Bakanı" },
+        { real: "Nihat Zeybekci", role: "Eski Ekonomi Bakanı", alone: ["Zeybekci"] },
+        { real: "Mustafa Varank", role: "Eski Sanayi ve Teknoloji Bakanı", alone: ["Varank"] },
+        { real: "Fatih Dönmez", role: "Eski Enerji Bakanı" },
+        { real: "Taner Yıldız", role: "Eski Enerji Bakanı" },
+        { real: "Bekir Pakdemirli", role: "Eski Tarım ve Orman Bakanı", alone: ["Pakdemirli"] },
+        { real: "Vahit Kirişci", role: "Eski Tarım ve Orman Bakanı", alone: ["Kirişci"] },
+        { real: "Veysel Eroğlu", role: "Eski Orman ve Su İşleri Bakanı" },
+        { real: "Mehmet Özhaseki", role: "Eski Çevre ve Şehircilik Bakanı", alone: ["Özhaseki"] },
+        { real: "Adil Karaismailoğlu", role: "Eski Ulaştırma Bakanı", alone: ["Karaismailoğlu"] },
+        { real: "Mehmet Cahit Turhan", role: "Eski Ulaştırma Bakanı", alone: ["Cahit Turhan"] },
+        { real: "Mehmet Kasapoğlu", role: "Eski Gençlik ve Spor Bakanı", alone: ["Kasapoğlu"] },
+        { real: "Egemen Bağış", role: "Eski AB Bakanı" },
+        { real: "Mustafa Şentop", role: "Eski TBMM Başkanı", alone: ["Şentop"] },
+        { real: "İbrahim Kalın", role: "MİT Başkanı" },
+        { real: "Fahrettin Altun", role: "Eski İletişim Başkanı" },
+        // Diğer öne çıkan siyasetçiler
+        { real: "Ömer Çelik", role: "AK Parti Sözcüsü" },
+        { real: "Abdullah Güler", role: "AK Parti Grup Başkanı" },
+        { real: "Özlem Zengin", role: "AK Parti" },
+        { real: "Semih Yalçın", role: "MHP" },
+        { real: "Meral Akşener", role: "İYİ Parti eski Genel Başkanı", alone: ["Akşener"] },
+        { real: "Temel Karamollaoğlu", role: "Saadet Partisi eski Genel Başkanı", alone: ["Karamollaoğlu"] },
+        { real: "Mahmut Arıkan", role: "Saadet Partisi" },
+        { real: "Ümit Özdağ", role: "Zafer Partisi", alone: ["Özdağ"] },
+        { real: "Muharrem İnce", role: "Memleket Partisi" },
+        { real: "Mustafa Destici", role: "BBP", alone: ["Destici"] },
+        { real: "Doğu Perinçek", role: "Vatan Partisi", alone: ["Perinçek"] },
+        { real: "Erkan Baş", role: "TİP" },
+        { real: "Selahattin Demirtaş", role: "HDP eski Eş Genel Başkanı", alone: ["Demirtaş"] },
+        { real: "Pervin Buldan", role: "HDP eski Eş Genel Başkanı", alone: ["Buldan"] },
+        { real: "Mithat Sancar", role: "HDP eski Eş Genel Başkanı" },
+        { real: "Ahmet Türk", role: "DEM Parti" },
+        { real: "Canan Kaftancıoğlu", role: "CHP", alone: ["Kaftancıoğlu"] }
       ]
     }
   };
@@ -340,7 +403,7 @@
         const first = parts.slice(0, -1).map((w) => aliasForFirst(w, 0));
         const last = parts[parts.length - 1];
         let v = 0;
-        while (usedSurnames.has(aliasForSurname(last, v)) && v < 20) v++;
+        while (usedSurnames.has(aliasForSurname(last, v)) && v < 40) v++;
         alias = [...first, aliasForSurname(last, v)].join(" ");
       }
       usedSurnames.add(alias.split(" ").pop());

@@ -129,62 +129,113 @@
     }
   }
 
-  function replaceInContentEditable(rootEl) {
-    const caret = getCaretOffset(rootEl);
-    const hadFocus = rootEl.contains(deepActiveElement()) || rootEl === deepActiveElement();
-    let total = 0;
-    let caretShift = 0;
-
-    // Her turda ilk eşleşmeyi bul ve değiştir; DOM editör tarafından yeniden kurulabileceği için
-    // her seferinde düğümleri tazeden tara.
-    for (let guard = 0; guard < 50; guard++) {
-      let found = null;
-      let offsetBefore = 0;
-      for (const node of textNodes(rootEl)) {
-        matcher.regex.lastIndex = 0;
-        const m = matcher.regex.exec(node.nodeValue);
-        if (m) { found = { node, index: m.index, match: m[0] }; break; }
-        offsetBefore += node.nodeValue.length;
-      }
-      matcher.regex.lastIndex = 0;
-      if (!found) break;
-
-      const alias = matcher.aliasFor(found.match);
-      const range = document.createRange();
-      range.setStart(found.node, found.index);
-      range.setEnd(found.node, found.index + found.match.length);
-
-      let ok = false;
-      if (hadFocus) {
-        // execCommand, Draft.js / Lexical / ProseMirror editörlerinin dahili durumunu da günceller.
-        const sel = window.getSelection();
-        sel.removeAllRanges();
-        sel.addRange(range);
-        ok = document.execCommand("insertText", false, alias);
-      }
-      if (!ok) {
-        found.node.nodeValue =
-          found.node.nodeValue.slice(0, found.index) + alias + found.node.nodeValue.slice(found.index + found.match.length);
-        rootEl.dispatchEvent(new InputEvent("input", { bubbles: true, inputType: "insertReplacementText", data: alias }));
-      }
-
-      if (caret != null && offsetBefore + found.index + found.match.length <= caret) {
-        caretShift += alias.length - found.match.length;
-      }
-      total++;
+  function countMatches(rootEl) {
+    let n = 0;
+    for (const node of textNodes(rootEl)) {
+      const m = node.nodeValue.match(matcher.regex);
+      if (m) n += m.length;
     }
-
-    if (total && hadFocus && caret != null) {
-      try { setCaretOffset(rootEl, caret + caretShift); } catch (_) {}
-    }
-    return total;
+    matcher.regex.lastIndex = 0;
+    return n;
   }
 
-  function sanitize(el) {
+  const tick = (ms) => new Promise((r) => setTimeout(r, ms));
+
+  // Metni editörün KENDİ yapıştırma yolundan verir. X'in editörü (Draft.js) yapıştırmayı kendisi
+  // işleyip iç durumunu ve ekranı birlikte günceller. execCommand ile tarayıcıya metni doğrudan
+  // değiştirtmek ise ekran ile iç durumu birbirinden koparır (silme tuşu ekrana yansımaz).
+  // Düzenleyici olayı karşıladıysa (preventDefault) dispatchEvent false döner.
+  function pasteInto(rootEl, text) {
+    try {
+      const dt = new DataTransfer();
+      dt.setData("text/plain", text);
+      const ev = new ClipboardEvent("paste", { clipboardData: dt, bubbles: true, cancelable: true });
+      return rootEl.dispatchEvent(ev) === false;
+    } catch (_) {
+      return false;
+    }
+  }
+
+  const busy = new WeakSet();
+
+  async function replaceInContentEditable(rootEl) {
+    if (busy.has(rootEl)) return 0;
+    let hadFocus = rootEl.contains(deepActiveElement()) || rootEl === deepActiveElement();
+    if (!hadFocus) {
+      rootEl.focus();
+      hadFocus = rootEl.contains(deepActiveElement()) || rootEl === deepActiveElement();
+      if (!hadFocus) return 0;
+    }
+    busy.add(rootEl);
+    try {
+      const startedAt = lastActivity;
+      const caret = getCaretOffset(rootEl);
+      let total = 0;
+      let caretShift = 0;
+      let remaining = countMatches(rootEl);
+
+      while (remaining > 0) {
+        let found = null;
+        let offsetBefore = 0;
+        for (const node of textNodes(rootEl)) {
+          matcher.regex.lastIndex = 0;
+          const m = matcher.regex.exec(node.nodeValue);
+          if (m) { found = { node, index: m.index, match: m[0] }; break; }
+          offsetBefore += node.nodeValue.length;
+        }
+        matcher.regex.lastIndex = 0;
+        if (!found) break;
+
+        const alias = matcher.aliasFor(found.match);
+        const select = () => {
+          const range = document.createRange();
+          range.setStart(found.node, found.index);
+          range.setEnd(found.node, found.index + found.match.length);
+          const sel = window.getSelection();
+          sel.removeAllRanges();
+          sel.addRange(range);
+          return sel;
+        };
+
+        let sel = select();
+        await tick(60); // editör seçimi (selectionchange) işlesin
+        // Bu arada kullanıcı yazdıysa ya da seçim değiştiyse hiçbir şey yapma.
+        if (!active() || lastActivity !== startedAt || sel.toString() !== found.match) break;
+
+        const handled = pasteInto(rootEl, alias);
+        await tick(80);
+        let now = countMatches(rootEl);
+        if (!handled && now >= remaining) {
+          // Editör yapıştırmayı karşılamadı (DOM değişmedi); son çare olarak tarayıcının kendi yolu.
+          if (lastActivity !== startedAt) break;
+          sel = select();
+          document.execCommand("insertText", false, alias);
+          await tick(60);
+          now = countMatches(rootEl);
+        }
+        if (now >= remaining) break; // editör değişikliği kabul etmedi; döngüye girme
+        remaining = now;
+
+        if (caret != null && offsetBefore + found.index + found.match.length <= caret) {
+          caretShift += alias.length - found.match.length;
+        }
+        total++;
+      }
+
+      if (total && caret != null && lastActivity === startedAt) {
+        try { setCaretOffset(rootEl, caret + caretShift); await tick(50); } catch (_) {}
+      }
+      return total;
+    } finally {
+      busy.delete(rootEl);
+    }
+  }
+
+  async function sanitize(el) {
     if (!active() || !el) return 0;
     try {
       if (isTextInput(el)) return replaceInTextInput(el);
-      if (el.isContentEditable) return replaceInContentEditable(el);
+      if (el.isContentEditable) return await replaceInContentEditable(el);
     } catch (e) {
       console.warn("[NameShield]", e);
     }
@@ -220,24 +271,105 @@
   }
 
   // ---------- Canlı değiştirme ----------
+  // Yalnızca yazma/yapıştırma sonrası çalışır. Silme ve geri alma (⌘Z) sırasında asla değiştirmez;
+  // kullanıcı bir değişikliği geri aldıysa o alanda canlı değiştirme, alan odağı kaybedene kadar
+  // durur (gönderim koruması yine çalışır). Bir alanda kısa sürede çok fazla değişiklik olursa
+  // (editörle çekişme) canlı değiştirme o alan için duraklatılır.
 
+  const paused = new WeakMap();   // el → duraklatmanın biteceği zaman (Infinity: odak kaybına kadar)
+  const history = new WeakMap();  // el → son değiştirme zamanları
+
+  function isPaused(el) {
+    const until = paused.get(el);
+    return until != null && Date.now() < until;
+  }
+
+  function noteReplacement(el) {
+    const now = Date.now();
+    const times = (history.get(el) || []).filter((t) => now - t < 5000);
+    times.push(now);
+    history.set(el, times);
+    if (times.length > 4) {
+      paused.set(el, now + 15000);
+      toast("Bu alanda otomatik değiştirme 15 sn duraklatıldı; gönderirken yine kontrol edilecek.");
+    }
+  }
+
+  // Editör "sakin" değilse (IME / macOS satır içi tahmin gibi bir kompozisyon sürüyorsa, seçili metin
+  // varsa ya da kullanıcı az önce tuşa bastıysa) editöre dokunulmaz; zamanlayıcı yeniden kurulur.
+  // Satır içi tahmin ve IME, metni "işaretli metin" olarak tutar; o sırada metni değiştirmek
+  // harflerin üst üste binmesine ve silmenin bozulmasına yol açar.
+  const QUIET_MS = 700;
+  let composing = false;
+  let lastActivity = 0;
   let debounceTimer = null;
-  document.addEventListener("input", (e) => {
-    if (!active() || !settings.liveReplace) return;
-    if (e.isComposing) return;
-    const el = editableRoot(e.composedPath ? e.composedPath()[0] : e.target);
-    if (!el) return;
+
+  function editorIsCalm(el) {
+    if (composing) return false;
+    if (Date.now() - lastActivity < QUIET_MS) return false;
+    if (isTextInput(el)) return el.selectionStart === el.selectionEnd;
+    const sel = window.getSelection();
+    return !sel || sel.rangeCount === 0 || sel.isCollapsed;
+  }
+
+  function scheduleReplace(el, attempt = 0) {
     clearTimeout(debounceTimer);
-    debounceTimer = setTimeout(() => {
-      const n = sanitize(el);
-      if (n) toast(n === 1 ? "İsim takma adla değiştirildi" : n + " isim takma adla değiştirildi");
-    }, 450);
+    debounceTimer = setTimeout(async () => {
+      if (!active() || !settings.liveReplace || isPaused(el) || !hasRealName(el)) return;
+      // Kullanıcı bu arada başka alana geçtiyse odağı geri çalma; gönderimde kontrol edilir.
+      const a = deepActiveElement();
+      if (!(el === a || el.contains(a))) return;
+      if (!editorIsCalm(el)) {
+        if (attempt < 20) scheduleReplace(el, attempt + 1); // en fazla ~15 sn bekle
+        return;
+      }
+      const n = await sanitize(el);
+      if (n) {
+        noteReplacement(el);
+        toast(n === 1 ? "İsim takma adla değiştirildi" : n + " isim takma adla değiştirildi");
+      }
+    }, QUIET_MS);
+  }
+
+  document.addEventListener("compositionstart", () => { if (active()) { composing = true; lastActivity = Date.now(); } }, true);
+  document.addEventListener("compositionend", () => { composing = false; lastActivity = Date.now(); }, true);
+
+  document.addEventListener("keydown", (e) => {
+    if (!active()) return;
+    lastActivity = Date.now();
+    // ⌘Z / Ctrl+Z: geri alınan değişikliği tekrar yapmamak için alanı duraklat
+    // (bazı editörler geri almada input olayı göndermez).
+    if ((e.metaKey || e.ctrlKey) && (e.key === "z" || e.key === "Z")) {
+      const el = editableRoot(deepActiveElement());
+      if (el) { clearTimeout(debounceTimer); paused.set(el, Infinity); }
+    }
   }, true);
 
-  // Odak kaybında da temizle (ör. başka bir alana geçerken).
+  document.addEventListener("input", (e) => {
+    if (!active() || !settings.liveReplace) return;
+    lastActivity = Date.now();
+    if (e.isComposing) { composing = true; return; }
+    const el = editableRoot(e.composedPath ? e.composedPath()[0] : e.target);
+    if (!el) return;
+    const type = e.inputType || "";
+    if (type.startsWith("history")) {
+      clearTimeout(debounceTimer);
+      paused.set(el, Infinity);
+      return;
+    }
+    // Silme, kompozisyon ve (tahmin/otomatik düzeltme dahil) değiştirme girdilerinde asla araya girme.
+    if (type.startsWith("delete") || type.includes("Composition") || type === "insertReplacementText") {
+      clearTimeout(debounceTimer);
+      return;
+    }
+    if (isPaused(el)) return;
+    scheduleReplace(el);
+  }, true);
+
   document.addEventListener("focusout", (e) => {
+    if (!active()) return;
     const el = editableRoot(e.target);
-    if (el && hasRealName(el)) sanitize(el);
+    if (el && paused.get(el) === Infinity) paused.delete(el);
   }, true);
 
   // ---------- Gönderim koruması ----------
@@ -271,9 +403,15 @@
     // İsim hâlâ duruyorsa gönderimi durdur, temizle; kullanıcı tekrar gönderir.
     e.preventDefault();
     e.stopImmediatePropagation();
-    let n = 0;
-    dirty.forEach((el) => { n += sanitize(el); });
-    toast(`Gönderim durduruldu: ${n} isim değiştirildi. Kontrol edip tekrar gönderin.`);
+    dirty.forEach((el) => paused.delete(el));
+    Promise.all(dirty.map((el) => sanitize(el))).then((counts) => {
+      const n = counts.reduce((x, y) => x + y, 0);
+      if (dirty.some(hasRealName)) {
+        toast("Gönderim durduruldu: isim otomatik değiştirilemedi, lütfen elle düzeltin.");
+      } else {
+        toast(`Gönderim durduruldu: ${n} isim değiştirildi. Kontrol edip tekrar gönderin.`);
+      }
+    });
     return true;
   }
 

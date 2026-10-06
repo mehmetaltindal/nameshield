@@ -19,7 +19,7 @@ X/Twitter, Facebook, LinkedIn, Instagram, Reddit, YouTube yorumları gibi `texta
 
 ### Hazır liste: Türk siyasetçileri
 
-Cumhurbaşkanı, kabine üyeleri ve öne çıkan siyasetçiler (31 kişi) hazır bir liste olarak gelir; ayarlardan kapatılabilir. Tam isimler her zaman değişir; soyadı yalnızca ayırt ediciyse (Erdoğan, Bahçeli, İmamoğlu…) tek başına değiştirilir. “Bak”, “Kurum”, “Özel”, “Fidan” gibi günlük dilde de geçen kelimelere dokunulmaz. Liste Ekim 2026 itibarıyla [tccb.gov.tr/kabine](https://www.tccb.gov.tr/kabine/) kaynağına göre hazırlanmıştır; değişiklikler için PR açabilirsiniz (`extension/src/names.js` → `PRESETS`).
+Cumhurbaşkanı, mevcut kabine, yakın dönem eski bakanlar ve öne çıkan siyasetçiler (89 kişi) hazır bir liste olarak gelir; ayarlardan kapatılabilir. Tam isimler her zaman değişir; soyadı yalnızca ayırt ediciyse (Erdoğan, Bahçeli, İmamoğlu…) tek başına değiştirilir. “Bak”, “Kurum”, “Özel”, “Fidan” gibi günlük dilde de geçen kelimelere dokunulmaz. Liste Ekim 2026 itibarıyla [tccb.gov.tr/kabine](https://www.tccb.gov.tr/kabine/) kaynağına göre hazırlanmıştır; değişiklikler için PR açabilirsiniz (`extension/src/names.js` → `PRESETS`).
 
 ## Kurulum (Chrome, Edge, Brave, Arc)
 
